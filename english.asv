@@ -1,22 +1,20 @@
-clc
+clear all
 text = fileread('/Users/aiokura/Desktop/pride_and_prejudice.txt');
-text(1:20)
+text(1:20);
 for i = 1:length(text)
     unicode_value = double(text(i));
     if (unicode_value >= hex2dec('0061') && unicode_value <= hex2dec('007A'))||(unicode_value >= hex2dec('0041') && unicode_value <= hex2dec('005A'))
         disp("English");
         break;
     elseif unicode_value >= hex2dec('3040') && unicode_value <= hex2dec('309F')
-        disp("Japanese"); 
+        disp("Japanese");
         break;
-    elseif unicode_value >= hex2dec('0600') && unicode_value <= hex2dec('06FF')
-        disp("Arabic");
+    elseif unicode_value >= hex2dec('0E00') && unicode_value <= hex2dec('0E7F')
+        disp("Thai");
         break;
-    elseif unicode_value >= hex2dec('1100') && unicode_value <= hex2dec('11FF')
-        disp("Korean")
-        break; 
+    elseif unicode_value >= hex2dec
     else
-        continue;
+        disp("Unknown character range");
     end
 end
 
