@@ -1,0 +1,8 @@
+[filename, location] = uigetfile('*.txt', 'select text files', 'MultiSelect', 'on')
+
+count_trigrams = container.Map('KeyType', 'char', 'ValueType', 'double'); 
+if ischar(filename)
+    filename = {filename};
+  end
+
+    
