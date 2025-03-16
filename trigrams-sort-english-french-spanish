@@ -1,24 +1,56 @@
-[filename, location] = uigetfile('*.txt', 'select text files', 'MultiSelect', 'on')
+english_trigrams = load('english_trigram_freq.mat');
+spanish_trigrams = load('spanish_trigram_freq.mat');
+french_trigrams = load('french_trigram_freq.mat');
 
+[filename, location] = uigetfile('*.txt', 'select text files', 'MultiSelect', 'on')
 
 for i = 1:length(filename)
 file_path = fullfile(location, filename{i}); %gives full link of file and location%
 text = fileread(file_path); %reads the text%
 text = lower(text); %lowercase, important because the trigrams should not be case sensitive%
 text = regexprep(text, '[^a-z]', ''); %makes the text only letters not sure if this connects words separated by spaces%
-
-for j = 1:1:length(text)-2 %from j being the first letter to being the third last letter because trigram is three letters%
-trigram = text(j:j+2);
 end
 
-end
-
-trigram_score = 0; 
+english_score = 0; 
 for j = 1:1:length(text) - 2
 trigram = text(j:j+2);
 if isKey(trigram_freq, trigram)
-score = score + 1; 
+english_score = english_score + trigram_freq(trigram) %IM NOT SURE IF WE NEED TO RENAME TRIGRAM_FREQ FOR ALL THREE LANGUAGES
 else 
-score = score;
+english_score = english_score;
 end
+disp('the english score is 'english_score'')
 end
+
+spanish_score = 0; 
+for j = 1:1:length(text) - 2
+trigram = text(j:j+2);
+if isKey(trigram_freq, trigram)
+spanish_score = spanish_score + trigram_freq(trigram)
+else 
+spanish_score = spanish_score;
+end
+disp('the spanish score is 'spanish_score'')
+end
+
+french_score = 0; 
+for j = 1:1:length(text) - 2
+trigram = text(j:j+2);
+if isKey(trigram_freq, trigram)
+french_score = french_score + trigram_freq(trigram)
+else 
+french_score = french_score;
+end
+disp('the french score is 'french_score'')
+end
+
+function detected_language = language(trigram_score)
+if trigram_score > %insert frequency% 
+detected_language = 'English';
+if trigram_score > %insert frequency%
+detected_language = 'Spanish';
+if trigram_score > 
+
+
+
+
