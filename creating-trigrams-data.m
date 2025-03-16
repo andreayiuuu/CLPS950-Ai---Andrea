@@ -1,4 +1,4 @@
-[filename, location] = uigetfile('*.txt', 'select text files', 'MultiSelect', 'on')
+is[filename, location] = uigetfile('*.txt', 'select text files', 'MultiSelect', 'on')
 
 count_trigrams = container.Map('KeyType', 'char', 'ValueType', 'double'); 
 if ischar(filename)
@@ -31,7 +31,7 @@ disp(trigram_freq)
 
 %still need to save this data as a file but i want to run it first%
 
-save('trigram_freq.mat', 'trigram_freq')
+save('english_trigram_freq.mat', 'trigram_freq') %saves english dataset as its own%
 
 
 
