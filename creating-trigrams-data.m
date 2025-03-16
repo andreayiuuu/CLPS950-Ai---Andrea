@@ -31,6 +31,9 @@ disp(trigram_freq)
 
 %still need to save this data as a file but i want to run it first%
 
+save('trigram_freq.mat', 'trigram_freq')
+
+
 
 
 
