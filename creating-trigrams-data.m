@@ -27,8 +27,9 @@ keys_List = key(count_trigrams);
 for i = 1:length(key_list);
 trigram_freq = count_trigrams(trigram)/total_trigrams;
 end
-
 disp(trigram_freq)
+
+%still need to save this data as a file but i want to run it first%
 
 
 
