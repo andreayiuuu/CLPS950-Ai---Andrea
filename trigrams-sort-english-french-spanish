@@ -44,12 +44,18 @@ end
 disp('the french score is 'french_score'')
 end
 
-function detected_language = language(trigram_score)
-if trigram_score > %insert frequency% 
+
+if english_score >> spanish_score && english_score >> french_score;
 detected_language = 'English';
-if trigram_score > %insert frequency%
+elseif spanish_score >> english_score && spanish_score >> french_score;
 detected_language = 'Spanish';
-if trigram_score > 
+elseif french_score >> english_score && french_score >> spanish_score;
+detected_language = 'French; 
+else 
+detected_language = 'No conclusion';
+end
+disp(detected_language)
+
 
 
 
