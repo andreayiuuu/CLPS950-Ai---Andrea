@@ -14,8 +14,8 @@ end
 english_score = 0; 
 for j = 1:1:length(text) - 2
 trigram = text(j:j+2);
-if isKey(trigram_freq, trigram)
-english_score = english_score + trigram_freq(trigram) %IM NOT SURE IF WE NEED TO RENAME TRIGRAM_FREQ FOR ALL THREE LANGUAGES
+if isKey(english_trigrams, trigram)
+english_score = english_score + english_trigrams(trigram) %if this doesn't work then try 1/totaltrigram count in this text
 else 
 english_score = english_score;
 end
@@ -25,8 +25,8 @@ end
 spanish_score = 0; 
 for j = 1:1:length(text) - 2
 trigram = text(j:j+2);
-if isKey(trigram_freq, trigram)
-spanish_score = spanish_score + trigram_freq(trigram)
+if isKey(spanish_trigrams, trigram)
+spanish_score = spanish_score + spanish_trigrams(trigram)
 else 
 spanish_score = spanish_score;
 end
@@ -36,8 +36,8 @@ end
 french_score = 0; 
 for j = 1:1:length(text) - 2
 trigram = text(j:j+2);
-if isKey(trigram_freq, trigram)
-french_score = french_score + trigram_freq(trigram)
+if isKey(french_trigrams, trigram)
+french_score = french_score + french_trigrams(trigram)
 else 
 french_score = french_score;
 end
