@@ -1,10 +1,4 @@
-% english 
-% count_trigrams = container.Map('KeyType', 'char', 'ValueType', 'double'); 
-% if ischar(filename)
-%     filename = {filename};
-% end
-
-count_trigrams = [the, are, she]%ai and i tried this today to fix isKey.
+count_trigrams = [the, are, she]; %ai and i tried this today to fix isKey.
 total_trigrams = 0;
 for i = 1:length(text(1:100))
     text = fileread('/Users/aiokura/Desktop/english.txt');
@@ -31,7 +25,6 @@ disp(trigram_freq)
 %still need to save this data as a file but i want to run it first%
 
 save('english_trigram_freq.mat', 'trigram_freq') %saves english dataset as its own%
-
 
 
 
