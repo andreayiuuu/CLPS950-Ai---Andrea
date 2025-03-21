@@ -1,6 +1,6 @@
 count_trigrams = configureDictionary("string", "double"); % makes a dictionary to store trigrams as keys and counts as values. 
 total_trigrams = 0; % initializes number of total trigrams
-text = fileread('french.txt'); % reads text file into a string 
+text = fileread('spanish.txt'); % reads text file into a string 
 text = lower(text); % turns all characters in text file to lowercase
 text = regexprep(text, '[^a-z]', ''); % makes the text only letters 
 
@@ -19,10 +19,10 @@ english_trigrams = configureDictionary("string", "double");
 
 for i = 1:length(english_keys) % loops from first english key to last english key
     key = english_keys(i); 
-    if isKey(count_trigrams,key) % for each trigram in english_keys, checks if it's included within the count_trigrams dictionary
-       english_trigrams(key)=count_trigrams(key); % if it is, copy its count into english_trigrams
+    if isKey(count_trigrams,key) % for each trigram in english_keys, checks if each english key is included within the count_trigrams dictionary
+       english_trigrams(key)=count_trigrams(key); % if it is, 
     else 
-        english_trigrams(key) = 0; % if not, set the count to 0. 
+        english_trigrams(key) = 0;
     end
 end
 disp(english_trigrams)% displays english trigram count in text file
