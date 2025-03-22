@@ -1,15 +1,15 @@
 filename = fileread('english2.txt');
 text = lower(filename); %lowercase, important because the trigrams should not be case sensitive%
-text = regexprep(text, '[^a-z]', ''); %makes the text only letters not sure if this connects words separated by spaces%
-english_trigrams = containers.Map({'the','she','are'},[1,1,1]);
+text = regexprep(text, '[^a-z]', ''); % makes the text only letters 
+english_trigrams = containers.Map({'the','she','are'},[1,1,1]); % creates map where keys are common trigrams and values are all 1. 
 spanish_trigrams = containers.Map({'del','est','nte'},[1,1,1]);
 french_trigrams = containers.Map({'ait','ion','eur'},[1,1,1]);
 
 english_score = 0; 
 for j = 1:1:(length(text) - 2) % loops through trigrams, starting from the first character, ending at the third to last character and incrementing by 1. 
     trigram = text(j:j+2); % definition of a trigram
-    if isKey(english_trigrams, trigram) % checks to see if trigram is included in the container, english trigrams 
-       english_score = english_score + english_trigrams(trigram); %  
+    if isKey(english_trigrams, trigram) % checks to see if trigram is included in the english_trigrams map.  
+       english_score = english_score + english_trigrams(trigram); % if it is, the value of that trigram, 1,  
     end
 end
 disp(['the english score is ', num2str(english_score)]);
